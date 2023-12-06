@@ -1,0 +1,8 @@
+{
+  "editor.formatOnSave": true, // prettier 자동 수정
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true, // eslint 자동 수정
+    "source.fixAll.stylelint": true // sytlelint 자동 수정
+  },
+  "stylelint.enable": true
+}
