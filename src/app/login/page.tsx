@@ -1,3 +1,9 @@
+import InfoIcon from '../../assets/svgs/info.svg';
+
 export default function Page() {
-  return <>login</>;
+  return (
+    <>
+      <InfoIcon /> login
+    </>
+  );
 }
