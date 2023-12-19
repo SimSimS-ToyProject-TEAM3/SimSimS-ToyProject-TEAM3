@@ -1,39 +1,29 @@
-"use client";
+'use client';
 
-import { useQuery, useSuspenseQuery } from "@tanstack/react-query";
-import { fetchFollowingInfo } from "apis/followData";
-import { Suspense } from "react";
+import { useSuspenseQuery } from '@tanstack/react-query';
+import { useState } from 'react';
 
+import UserList from 'components/follow-list/UserList';
+import getFilteredLists from 'utils/getFilteredList';
 
-export const Page: React.FC = () => {
-
-
-  const { data, isFetching } = useSuspenseQuery({
-    queryKey: ["users"],
-    queryFn: () => fetchFollowingInfo('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'),
+export const Page = () => {
+  const { data } = useSuspenseQuery({
+    queryKey: ['users'],
+    queryFn: () => getFilteredLists('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'), //토큰은 외부에서 가져올 것
   });
 
-  return (
-    <Suspense fallback={<h1>hi</h1>}>
-      <div className="p-4">
-        <div className="pb-8 w-3/5 m-auto">
-          {isFetching ? (
-            <span>loading...</span>
-          ) : (
-            data?.following.map((followingUser, index) => (
-              <ul key={index} className="pb-8 text-left">
-                <li>
-                  <strong>id: </strong>
-                  <span>{followingUser.login}</span>
-                </li>
+  const { f4fList, notF4fList } = data;
 
-              </ul>
-            ))
-          )}
-        </div>
-      </div>
-    </Suspense>
-  )
-}
+  const [selectedMenu, setSelectedMenu] = useState<'f4fList' | 'notF4fList'>('f4fList');
+
+  return (
+    <div>
+      <button onClick={() => setSelectedMenu(selectedMenu === 'f4fList' ? 'notF4fList' : 'f4fList')}>
+        {selectedMenu === 'f4fList' ? '날 팔로우하지 않는 사람 보기' : '나와 맞팔인 사람 보기'}
+      </button>
+      <div>{selectedMenu === 'f4fList' ? <UserList list={f4fList} /> : <UserList list={notF4fList} />}</div>
+    </div>
+  );
+};
 
 export default Page;
