@@ -49,7 +49,7 @@ const CreateTokenButton = styled.button`
 
   border-radius: 9rem;
 
-  font-size: 1.2rem;
+  ${({ theme }) => theme.fonts.body2}
   color: ${({ theme }) => theme.colors.white};
 
   box-shadow: rgba(0, 0, 0, 0.25) 0px 0.4rem 0.4rem;
@@ -69,23 +69,23 @@ const SmallInfoIcon = styled(InfoIcon)`
 `;
 
 const CreateTokenNotice = styled.p`
-  font-size: 1.1rem;
+  ${({ theme }) => theme.fonts.body2}
 `;
 
 const TokenInput = styled.input`
-  ${({ theme }) => theme.fonts.body2}
-
   width: 100%;
   height: 4.3rem;
   padding: 0 1.5rem;
   margin-top: 0.8rem;
 
-  border: 0.2rem solid rgb(231, 231, 231);
+  border: 0.2rem solid ${({ theme }) => theme.colors.lightGray};
   border-radius: 0.3rem;
 
+  ${({ theme }) => theme.fonts.body2}
+
   &::placeholder {
-    font-size: 1.2rem;
-    color: rgb(231, 231, 231);
+    ${({ theme }) => theme.fonts.body2}
+    color: ${({ theme }) => theme.colors.lightGray};
   }
 `;
 
@@ -99,13 +99,14 @@ const FollowerCheckButton = styled.button`
   border: 0.2rem solid ${({ theme }) => theme.colors.black};
   border-radius: 0.3rem;
 
-  font-size: 1.2rem;
+  ${({ theme }) => theme.fonts.body2}
   color: ${({ theme }) => theme.colors.black};
 `;
 
 const OrText = styled.p`
   margin: 1rem auto;
-  font-size: 1.4rem;
+
+  ${({ theme }) => theme.fonts.body1}
 `;
 
 const LoginWrapper = styled.div`
@@ -116,7 +117,7 @@ const LoginWrapper = styled.div`
 `;
 
 const LoginText = styled.p`
-  font-size: 1.1rem;
+  ${({ theme }) => theme.fonts.body2}
 `;
 
 const LoginButton = styled.button`
@@ -128,7 +129,7 @@ const LoginButton = styled.button`
   width: 12.5rem;
   height: 4rem;
 
-  background-color: rgb(249, 221, 160);
+  background-color: ${({ theme }) => theme.colors.brightYellow};
 
   border: 0.2rem solid ${({ theme }) => theme.colors.black};
   border-radius: 2rem;
@@ -137,7 +138,7 @@ const LoginButton = styled.button`
 `;
 
 const LoginButtonText = styled.p`
-  font-size: 1.2rem;
+  ${({ theme }) => theme.fonts.body2}
 `;
 
 export default TokenInputContainer;
