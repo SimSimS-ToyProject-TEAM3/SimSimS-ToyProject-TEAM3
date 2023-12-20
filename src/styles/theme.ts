@@ -6,6 +6,7 @@ const colors = {
   white: '#FFFFFF',
   lightYellow: '#FAF7EE',
   lightGray: 'rgb(231, 231, 231)',
+  brightYellow: 'rgb(249, 221, 160)',
 };
 
 const fonts = {

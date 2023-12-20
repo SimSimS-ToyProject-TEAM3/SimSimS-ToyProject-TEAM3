@@ -1,6 +1,6 @@
 import '@emotion/react';
 
-type colors = 'yellow' | 'green' | 'red' | 'black' | 'white' | 'lightYellow' | 'lightGray';
+type colors = 'yellow' | 'green' | 'red' | 'black' | 'white' | 'lightYellow' | 'lightGray' | 'brightYellow';
 type fonts = 'title1' | 'body1' | 'body2';
 
 declare module '@emotion/react' {
