@@ -9,7 +9,7 @@ import getFilteredLists from 'utils/getFilteredList';
 export const Page = () => {
   const { data } = useSuspenseQuery({
     queryKey: ['users'],
-    queryFn: () => getFilteredLists('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'), //토큰은 외부에서 가져올 것
+    queryFn: () => getFilteredLists('토큰'), //토큰은 외부에서 가져올 것
   });
 
   const { f4fList, notF4fList } = data;
