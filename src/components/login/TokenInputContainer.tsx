@@ -1,12 +1,25 @@
 'use client';
 
 import styled from '@emotion/styled';
-import React from 'react';
+import { useRouter } from 'next/navigation';
+import React, { useState } from 'react';
 
 import GithubIcon from '../../assets/svgs/github.svg';
 import InfoIcon from '../../assets/svgs/info.svg';
 
 function TokenInputContainer() {
+  const [token, setToken] = useState('');
+  const router = useRouter();
+
+  const handleChangeTokenInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setToken(e.target.value);
+  };
+
+  const handleClickFollowerCheckButton = () => {
+    sessionStorage.setItem('token', token);
+    router.push('/follow-list');
+  };
+
   return (
     <TokenInputContainerWrapper>
       <CreateTokenButton>Github Token 만들러 가기</CreateTokenButton>
@@ -14,8 +27,8 @@ function TokenInputContainer() {
         <SmallInfoIcon />
         <CreateTokenNotice>토큰 발급시 권한 user(Update ALL user data)를 체크해주세요!</CreateTokenNotice>
       </CreateTokenNoticeWrapper>
-      <TokenInput placeholder="Github Token을 입력해주세요" />
-      <FollowerCheckButton>나의 맞팔 확인하기</FollowerCheckButton>
+      <TokenInput placeholder="Github Token을 입력해주세요" onChange={handleChangeTokenInput} value={token} />
+      <FollowerCheckButton onClick={handleClickFollowerCheckButton}>나의 맞팔 확인하기</FollowerCheckButton>
       <OrText>or</OrText>
       <LoginWrapper>
         <LoginText>깃허브 로그인으로 간단하게 확인하기 👉🏻</LoginText>
