@@ -4,6 +4,7 @@ import styled from '@emotion/styled';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 
+import { createTokenButton } from './TokenInputContainer.css';
 import GithubIcon from '../../assets/svgs/github.svg';
 import InfoIcon from '../../assets/svgs/info.svg';
 
@@ -22,7 +23,7 @@ function TokenInputContainer() {
 
   return (
     <TokenInputContainerWrapper>
-      <CreateTokenButton>Github Token 만들러 가기</CreateTokenButton>
+      <button className={createTokenButton}>Github Token 만들러 가기</button>
       <CreateTokenNoticeWrapper>
         <SmallInfoIcon />
         <CreateTokenNotice>토큰 발급시 권한 user(Update ALL user data)를 체크해주세요!</CreateTokenNotice>
