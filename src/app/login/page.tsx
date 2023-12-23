@@ -1,27 +1,24 @@
 'use client';
 
-import styled from '@emotion/styled';
-
-import TokenInputContainer from 'components/login/TokenInputContainer';
-
 function Page() {
   return (
-    <PageWrapper>
-      <TokenInputContainer />
-    </PageWrapper>
+    <></>
+    // <PageWrapper>
+    //   <TokenInputContainer />
+    // </PageWrapper>
   );
 }
 
-const PageWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+// const PageWrapper = styled.div`
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
 
-  width: 100%;
-  height: 100vh;
-  padding: 0 1rem;
+//   width: 100%;
+//   height: 100vh;
+//   padding: 0 1rem;
 
-  background-color: ${({ theme }) => theme.colors.lightYellow};
-`;
+//   background-color: ${({ theme }) => theme.colors.lightYellow};
+// `;
 
 export default Page;
