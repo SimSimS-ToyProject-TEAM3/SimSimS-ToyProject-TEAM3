@@ -1,6 +1,6 @@
 import { User, getFollowersList, getFollowingList } from 'apis/getFollowData';
 
-const getFilteredLists = async (token?: string) => {
+const getFilteredList = async (token?: string) => {
   const followingList: User[] = await getFollowingList(token);
   const followersList: User[] = await getFollowersList(token);
 
@@ -15,4 +15,4 @@ const getFilteredLists = async (token?: string) => {
   return { f4fList, notF4fList };
 };
 
-export default getFilteredLists;
+export default getFilteredList;

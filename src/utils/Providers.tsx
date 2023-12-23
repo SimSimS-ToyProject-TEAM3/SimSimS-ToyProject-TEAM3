@@ -9,13 +9,13 @@ import { ErrorBoundary } from 'react-error-boundary';
 import Error from 'components/common/Error';
 import Loading from 'components/common/Loading';
 
-// import getFilteredLists from './getFilteredList';
+// import getFilteredList from './getFilteredList';
 
 function Providers({ children }: React.PropsWithChildren) {
   const [queryClient] = React.useState(new QueryClient());
   //   queryClient.prefetchQuery({
   //     queryKey: ['users'],
-  //     queryFn: () => getFilteredLists('토큰'),
+  //     queryFn: () => getFilteredList('토큰'),
   //   });
 
   return (

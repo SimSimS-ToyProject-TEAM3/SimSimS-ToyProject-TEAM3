@@ -4,15 +4,15 @@ import { useSuspenseQuery } from '@tanstack/react-query';
 import { useState } from 'react';
 
 import UserList from 'components/follow-list/UserList';
-import getFilteredLists from 'utils/getFilteredList';
+import getFilteredList from 'utils/getFilteredList';
 
 export const Page = () => {
-  const { data } = useSuspenseQuery({
+  const {
+    data: { f4fList, notF4fList },
+  } = useSuspenseQuery({
     queryKey: ['users'],
-    queryFn: () => getFilteredLists('토큰'), //토큰은 외부에서 가져올 것
+    queryFn: () => getFilteredList('토큰'),
   });
-
-  const { f4fList, notF4fList } = data;
 
   const [selectedMenu, setSelectedMenu] = useState<'f4fList' | 'notF4fList'>('f4fList');
 
