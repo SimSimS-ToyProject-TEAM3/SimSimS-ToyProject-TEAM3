@@ -1,24 +1,13 @@
-'use client';
+import * as S from './page.css';
+
+import TokenInputContainer from 'components/login/TokenInputContainer';
 
 function Page() {
   return (
-    <></>
-    // <PageWrapper>
-    //   <TokenInputContainer />
-    // </PageWrapper>
+    <div className={S.PageWrapper}>
+      <TokenInputContainer />
+    </div>
   );
 }
-
-// const PageWrapper = styled.div`
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-
-//   width: 100%;
-//   height: 100vh;
-//   padding: 0 1rem;
-
-//   background-color: ${({ theme }) => theme.colors.lightYellow};
-// `;
 
 export default Page;
