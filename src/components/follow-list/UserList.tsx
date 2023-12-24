@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import FollowButton from './FollowButton';
 import UserItem from './UserItem';
 
 import { User } from 'apis/getFollowData';
@@ -32,6 +33,7 @@ export default function UserList({ list, selectedMenu }: UserListProps) {
           selectedMenu={selectedMenu}
         />
       ))}
+      <FollowButton checkList={checkList} />
     </>
   );
 }

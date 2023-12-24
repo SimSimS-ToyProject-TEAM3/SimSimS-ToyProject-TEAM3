@@ -8,12 +8,14 @@ import * as S from './page.css';
 import UserList from 'components/follow-list/UserList';
 import getFilteredList from 'utils/getFilteredList';
 
-export const Page = () => {
+function Page() {
+  const token = sessionStorage.getItem('token') || undefined;
+
   const {
     data: { f4fList, notF4fList },
   } = useSuspenseQuery({
     queryKey: ['users'],
-    queryFn: () => getFilteredList('토큰'),
+    queryFn: () => getFilteredList(token),
   });
 
   const [selectedMenu, setSelectedMenu] = useState<'f4fList' | 'notF4fList'>('f4fList');
@@ -31,8 +33,9 @@ export const Page = () => {
       <div>
         <UserList list={selectedMenu === 'f4fList' ? f4fList : notF4fList} selectedMenu={selectedMenu} />
       </div>
+      <button>팔로우하기</button>
     </div>
   );
-};
+}
 
 export default Page;
