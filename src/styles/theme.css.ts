@@ -8,6 +8,12 @@ const root = createGlobalTheme('#root', {
       fontWeight: '700',
       fontStyle: 'normal',
     },
+    title2: {
+      fontFamily: 'Noto Sans KR',
+      fontSize: '4rem',
+      fontWeight: '700',
+      fontStyle: 'normal',
+    },
     body1: {
       fontFamily: 'Noto Sans KR',
       fontSize: '1.5rem',
