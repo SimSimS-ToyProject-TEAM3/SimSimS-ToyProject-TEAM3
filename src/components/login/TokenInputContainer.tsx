@@ -7,6 +7,8 @@ import * as S from './TokenInputContainer.css';
 import GithubIcon from '../../assets/svgs/github.svg';
 import InfoIcon from '../../assets/svgs/info.svg';
 
+import SessionStorage from 'utils/sessionStorage';
+
 function TokenInputContainer() {
   const [token, setToken] = useState('');
   const router = useRouter();
@@ -16,7 +18,7 @@ function TokenInputContainer() {
   };
 
   const handleClickFollowerCheckButton = () => {
-    sessionStorage.setItem('token', token);
+    SessionStorage.setItem('token', token);
     router.push('/follow-list');
   };
 

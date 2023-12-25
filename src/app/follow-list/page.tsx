@@ -1,19 +1,18 @@
 'use client';
 
-import { useSuspenseQuery } from '@tanstack/react-query';
+import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
 
 import * as S from './page.css';
 
 import UserList from 'components/follow-list/UserList';
 import getFilteredList from 'utils/getFilteredList';
+import SessionStorage from 'utils/sessionStorage';
 
 function Page() {
-  const token = sessionStorage.getItem('token') || undefined;
+  const token = SessionStorage.getItem('token') || undefined;
 
-  const {
-    data: { f4fList, notF4fList },
-  } = useSuspenseQuery({
+  const { data: { f4fList, notF4fList } = { f4fList: [], notF4fList: [] } } = useQuery({
     queryKey: ['users'],
     queryFn: () => getFilteredList(token),
   });
