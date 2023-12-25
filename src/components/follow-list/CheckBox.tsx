@@ -1,12 +1,19 @@
-import { ChangeEvent } from 'react';
+import { ChangeEvent, useEffect } from 'react';
 
 interface CheckboxProps {
+  isAllChecked: boolean;
   username: string;
   checkList: string[];
   setCheckList: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
-export default function Checkbox({ username, checkList, setCheckList }: CheckboxProps) {
+export default function Checkbox({ isAllChecked, username, checkList, setCheckList }: CheckboxProps) {
+  let isChecked = false;
+
+  useEffect(() => {
+    isChecked = checkList.includes(username);
+  }, [isAllChecked]);
+
   const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
     const target = e.currentTarget.value;
 
@@ -19,7 +26,8 @@ export default function Checkbox({ username, checkList, setCheckList }: Checkbox
     });
   };
 
-  const isChecked = checkList.includes(username);
+  isChecked = checkList.includes(username);
+
   return (
     <>
       <label htmlFor={username}>
