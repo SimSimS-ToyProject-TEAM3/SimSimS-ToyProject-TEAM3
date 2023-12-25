@@ -1,4 +1,4 @@
-import { ChangeEvent, useEffect, useState } from 'react';
+import { ChangeEvent, useEffect } from 'react';
 
 interface CheckboxProps {
   isAllChecked: boolean;
@@ -26,6 +26,8 @@ export default function Checkbox({ isAllChecked, username, checkList, setCheckLi
     });
   };
 
+  isChecked = checkList.includes(username);
+
   return (
     <>
       <label htmlFor={username}>
@@ -33,7 +35,7 @@ export default function Checkbox({ isAllChecked, username, checkList, setCheckLi
           type="checkbox"
           id={username}
           name={username}
-          checked={isAllChecked ? true : isChecked}
+          checked={isChecked}
           value={username}
           onChange={handleOnChange}
         />

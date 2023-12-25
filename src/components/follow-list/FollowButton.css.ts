@@ -31,4 +31,5 @@ export const FollowButton = style({
 
 export const Activate = style({
   backgroundColor: vars.colors.yellow,
+  pointerEvents: 'unset',
 });
