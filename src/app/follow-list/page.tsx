@@ -21,19 +21,22 @@ function Page() {
   const [selectedMenu, setSelectedMenu] = useState<'f4fList' | 'notF4fList'>('f4fList');
 
   return (
-    <div>
+    <div className={S.PageWrapper}>
       <nav className={S.Nav}>
-        <button className={S.Button} onClick={() => setSelectedMenu('notF4fList')}>
+        <button
+          className={`${S.Btn} ${selectedMenu === 'notF4fList' ? S.SelectedBtn : ''}`}
+          onClick={() => setSelectedMenu('notF4fList')}>
           맞팔 아닌 사람
         </button>
-        <button className={S.Button} onClick={() => setSelectedMenu('f4fList')}>
+        <button
+          className={`${S.Btn} ${selectedMenu === 'f4fList' ? S.SelectedBtn : ''}`}
+          onClick={() => setSelectedMenu('f4fList')}>
           맞팔인 사람
         </button>
       </nav>
       <div>
         <UserList list={selectedMenu === 'f4fList' ? f4fList : notF4fList} selectedMenu={selectedMenu} />
       </div>
-      <button>팔로우하기</button>
     </div>
   );
 }
