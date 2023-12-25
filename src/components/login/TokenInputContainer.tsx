@@ -16,7 +16,7 @@ function TokenInputContainer() {
   };
 
   const handleClickFollowerCheckButton = () => {
-    typeof window !== 'undefined' && sessionStorage.setItem('token', token);
+    sessionStorage.setItem('token', token);
     router.push('/follow-list');
   };
 
