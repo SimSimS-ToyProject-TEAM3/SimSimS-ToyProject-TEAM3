@@ -8,7 +8,7 @@ interface FollowButtonProps {
 }
 
 function FollowButton({ checkList }: FollowButtonProps) {
-  const token = sessionStorage.getItem('token') || undefined;
+  const token = (typeof window !== 'undefined' && sessionStorage.getItem('token')) || undefined;
 
   const mutation = useMutation({
     mutationFn: () => followSelectedUsers(token, checkList),

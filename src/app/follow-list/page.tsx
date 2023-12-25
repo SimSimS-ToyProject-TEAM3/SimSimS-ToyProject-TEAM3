@@ -9,7 +9,7 @@ import UserList from 'components/follow-list/UserList';
 import getFilteredList from 'utils/getFilteredList';
 
 function Page() {
-  const token = sessionStorage.getItem('token') || undefined;
+  const token = (typeof window !== 'undefined' && sessionStorage.getItem('token')) || undefined;
 
   const {
     data: { f4fList, notF4fList },
