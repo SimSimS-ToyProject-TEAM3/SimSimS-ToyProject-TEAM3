@@ -1,6 +1,6 @@
 import { User, getFollowersList, getFollowingList } from 'apis/getFollowData';
 
-const getFilteredList = async (token?: string) => {
+const getFilteredList = async (token: string = '') => {
   const followingList: User[] = await getFollowingList(token);
   const followersList: User[] = await getFollowersList(token);
 
